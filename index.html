@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="./node_modules/rx/dist/rx.lite.js"></script>
+    <script src="./node_modules/operative/dist/operative.js"></script>
+
+    <style>
+        body {
+            width: 1000px;
+        }
+    </style>
+</head>
+<body>
+    Hello
+
+    <button id="run_1">do requests</button>
+    <button id="run_2">do requests in workers</button>
+    <button id="wait">wait</button>
+    <button id="wait_in_worker">wait in worker</button>
+    <button id="animate">animate</button>
+
+    <h1 id="h1">WebWorkers</h1>
+    <div style="position: relative;">
+        <div id="ufo" style="position: absolute; width: 50px; height: 20px; background: gold;">UFO</div>
+    </div>
+
+    <pre>
+
+
+    <b>1. Web Workers allow You to run javaScript code in the background</b>
+        Web workers can't access DOM elements from the web page.
+        Web workers can't access global variables and JavaScript functions from the web page.
+        Web workers can't call alert() or confirm() functions.
+        Objects such as window, document and parent can't be accessed inside the web worker.
+        You can, however, use functions such as setTimeout(), setInterval(). You can also use XMLHttpRequest object to make Ajax requests to the server.
+
+    <b>2. Web Workers come in two types - shared and dedicated</b>
+    <b>5. Web Workers can use XMLHttpRequest to communicate with the server</b>
+    <b>6. You can trap unhandled erors using Error event</b>
+    <b>7. You can terminate a worker using terminate() method</b>
+
+    if
+
+    <b>creating worker with separate file</b>
+    <code>
+        var myWorker = new Worker("worker.js");
+    </code>
+
+    <b>creating worker without separate file</b>
+    <code>
+        var code = workerFn.toString();
+        code = code.substring(code.indexOf("{")+1, code.lastIndexOf("}"));
+        var blob = new Blob([code], {type: 'application/javascript'});
+        worker = new Worker(URL.createObjectURL(blob));
+    </code>
+
+    read more <a href="http://www.developer.com/lang/jscript/7-things-you-need-to-know-about-web-workers.html">http://www.developer.com/lang/jscript/7-things-you-need-to-know-about-web-workers.html</a>
+
+
+    can i use <a href="http://caniuse.com/#search=Blob">http://caniuse.com/#search=Blob</a> and <a href="http://caniuse.com/#search=Worker">http://caniuse.com/#search=Worker</a>
+    ie >=10, -opera_mini
+    </pre>
+
+
+<div id="output"></div>
+
+</body>
+<script src="./script.js"></script>
+
+</html>
